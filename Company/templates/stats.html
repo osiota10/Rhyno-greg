@@ -1,0 +1,19 @@
+{% load static %}
+
+{% if stat %}
+<section class="row">
+    <section class="col-lg-10 mx-auto">
+        <section class="row gy-3">
+            {% for item in stat%}
+            <section class="col-lg d-flex align-items-center justify-content-center mx-auto">
+                <i class="{{ item.font_awesome_class }} fs-1 me-3 text-primary"></i>
+                <section class="">
+                    <h4 class="text-primary"><span class="h1 num" data-val="{{ item.stat_figure }}">666</span>+</h4>
+                    <h6 class="fw-light">{{ item.stat_title }}</h6>
+                </section>
+            </section>
+            {% endfor %}
+        </section>
+    </section>
+</section>
+{% endif %}

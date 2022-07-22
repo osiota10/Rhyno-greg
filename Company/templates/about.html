@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load compress %}
+
+{% block title %}
+About - Rhyno-greg Construction Company Limited
+{% endblock %}
+
+{% block content %}
+<header class="card bg-dark text-white header-card ">
+    <img src="{{ company_data.0.page_header_image.url }}" height="250" class="card-img " alt="...">
+
+    <div class="card-img-overlay d-flex align-items-center justify-content-center img-dark-overlay">
+        <div class="flex-column">
+            <h1 class="h1 card-title fw-bolder text-center">About us</h1>
+            <h6 class="h6 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fringilla turpis
+                adipiscing ut sapien</h6>
+        </div>
+
+    </div>
+</header>
+
+<section class=" py-5 bg-light">
+    <nav class="container" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="d-inline-flex py-1 px-3 breadcrumb border border-1 border-primary fw-normal"
+            style="border-radius: 20px;">
+            <li class="breadcrumb-item">
+                <a href="{% url 'home'%}" class="text-decoration-none">
+                    <i class="fa-solid fa-house-chimney" style="margin-right: 4px;"></i>
+                    Home
+                </a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">About us</li>
+        </ol>
+    </nav>
+</section>
+
+{% if value_statement%}
+<section class="container py-6 values">
+    <header class="text-center mb-5">
+        <h2 class="h2 text-center text-primary fw-bolder">Core Values</h2>
+        <h6 class="h6">Our Corporate Goals</h6>
+    </header>
+
+    <div class="row">
+        <div class="col-md-10 mx-auto">
+            <div class="row gy-3">
+                {% for value in value_statement %}
+                <div class="col-lg-6">
+                    <i class="{{value.font_awesome_class}} text-center text-primary mb-2 d-flex align-items-center justify-content-center" style="font-size: 100px"></i>
+                    <h5 class="card-title text-center">{{ value.name }}</h5>
+                    <p class="card-text mt-1">{{ value.message|safe }}</p>
+
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+</section>
+{% endif %}
+
+
+<section class="container reveal">
+    <section class="row">
+        <section class="col-lg-10 mx-auto">
+            <div class="clearfix my-6">
+                <header class="text-center ">
+                    <h2 class="h2 text-center text-primary fw-bolder">About Us</h2>
+                    <h6 class="h6">How we came into Existence</h6>
+                </header>
+                <img src="{{ company_data.0.about_page_image.url }}"
+                     class="col-md-6 float-md-end mb-2 ms-md-3 img-fluid"
+                     alt="...">
+                <p>
+                    {{ company_data.0.about|safe }}
+                </p>
+            </div>
+        </section>
+    </section>
+</section>
+
+<section class="py-6 job-stat reveal">
+    <section class="container">
+        {% include 'stats.html' %}
+    </section>
+</section>
+
+
+{% include 'clients-list.html' %}
+
+
+{% if certification%}
+<section class="py-6 certifications bg-light reveal">
+    <section class="container">
+        <header class="text-center ">
+            <h2 class="h2 text-primary fw-bolder">Certification and Awards</h2>
+            <h6 class="h6">Lorem ipsum dolor sit amet, consectetur</h6>
+        </header>
+        <div class="row row-cols-1 row-cols-6 g-4 mt-3">
+            {% for items in certification %}
+            <div class="col ">
+                <img src="{{ items.logo.url }}" class="img-fluid mx-auto" alt="Logo of {{ items.name }}">
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</section>
+{% endif %}
+
+{% endblock content %}

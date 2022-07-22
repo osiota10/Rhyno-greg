@@ -1,0 +1,92 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% load compress %}
+
+{% block title %}
+Rhyno-greg Construction Company Limited
+{% endblock %}
+
+{% block content %}
+<header class="card bg-dark text-white header-card ">
+    <img src="{{ company_data.0.page_header_image.url }}" height="250" class="card-img " alt="...">
+    <div class="card-img-overlay d-flex align-items-center justify-content-center img-dark-overlay">
+        <div class="flex-column">
+            <h1 class="h1 card-title text-center fw-bolder">{{status.title}} Projects</h1>
+            <h6 class="h6 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fringilla turpis
+                adipiscing ut sapien</h6>
+        </div>
+
+    </div>
+</header>
+
+<section class=" py-5 bg-light">
+    <nav class="container" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="d-inline-flex py-1 px-3 breadcrumb border border-1 border-primary fw-normal"
+            style="border-radius: 20px;">
+            <li class="breadcrumb-item">
+                <a href="{% url 'home'%}" class="text-decoration-none">
+                    <i class="fa-solid fa-house-chimney" style="margin-right: 4px;"></i>
+                    Home
+                </a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="{% url 'projects'%}" class="text-decoration-none">
+                    Our Projects
+                </a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">{{status}}</li>
+        </ol>
+    </nav>
+</section>
+
+
+<section class="py-6">
+    <section class="container projects">
+
+        {% include 'project-nav.html' %}
+
+        {% for project in Projects %}
+                    <section class="row align-items-center gy-4 mb-5">
+                        <section class="col-lg-6">
+                <div id="carouselExampleCaptions5" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleCaptions5" data-bs-slide-to="0"
+                                class="active"
+                                aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions1" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions1" data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        {% for item in project.projectimage_set.all %}
+                            <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %} ratio ratio-4x3 ">
+                                <img src="{{item.image.url}}" class="img-fluid" alt="...">
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+                        <section class="col-lg-6">
+                <h3 class="text-center text-primary fw-bolder">{{ project.name }}</h3>
+                <section class="text-center text-primary">
+                    <span class="badge rounded-pill bg-primary me-3 fw-bold">{{ project.status }}</span>
+                    <time datetime="2021-12" class="me-3 fw-bold"><i class="fa-solid fa-calendar-days me-1"></i>{{ project.date }}
+                    </time>
+                    <span class="fw-bold"><i class="fa-solid fa-tags me-1"></i>{{ project.category }}</span>
+                </section>
+                <p class="mt-1">{{ project.description|safe|truncatechars:450 }}</p>
+                <form class="d-flex align-items-start justify-content-center">
+                    <a class="btn btn-primary fw-normal" href="{% url 'projects-detail' project.slug %}" role="button">View Project Information</a>
+                </form>
+            </section>
+                    </section>
+                    {% endfor %}
+
+    </section>
+</section>
+
+{% include 'pagination.html' %}
+
+{% endblock content %}

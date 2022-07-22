@@ -1,0 +1,11 @@
+{% load static %}
+<ul class="nav nav-tabs justify-content-center mb-4 flex-nowrap overflow-auto">
+    <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="{% url 'projects'%}">All</a>
+    </li>
+    {% for name in project_status%}
+    <li class="nav-item">
+        <a class="nav-link text-nowrap" href="{% url 'projects-status' name %}">{{name}}</a>
+    </li>
+    {% endfor %}
+</ul>

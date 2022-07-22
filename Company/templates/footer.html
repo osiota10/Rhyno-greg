@@ -1,0 +1,58 @@
+{% load static %}
+
+<footer>
+    <div class="bg-primary text-white pb-2">
+        <div class="container pt-6">
+            <div class="row gy-3">
+                <div class="col-lg-3">
+                    <h3 class="h3">About</h3>
+                    <p>
+                        {{ company_data.0.about|safe|truncatechars:150 }}
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <section class="row">
+                        <section class="col-6">
+                            <h3 class="h3">Useful Links</h3>
+                            <div class="list-group ">
+                                <a href="{% url 'services'%}" class="list-group-item list-group-item-action bg-primary text-white">Our Services</a>
+                                <a href="{% url 'about'%}" class="list-group-item list-group-item-action bg-primary text-white">About us</a>
+                                <a href="{% url 'testimonials'%}" class="list-group-item list-group-item-action bg-primary text-white">Testimonials</a>
+                            </div>
+                        </section>
+                        <section class="col-6">
+                            <h3 class="h3">Company</h3>
+                            <div class="list-group ">
+                                <a href="{% url 'projects'%}" class="list-group-item list-group-item-action bg-primary text-white">Our Projects</a>
+                                <a href="{% url 'terms-and-conditions'%}" class="list-group-item list-group-item-action bg-primary text-white">Terms & Conditions</a>
+                                <a href="{% url 'privacy-policy'%}" class="list-group-item list-group-item-action bg-primary text-white">Privacy Policy</a>
+                            </div>
+                        </section>
+
+                    </section>
+
+                </div>
+                <div class="col-lg-3">
+                    <h3 class="h3 card-title">Get in Touch</h3>
+                    <div class="mt-1">
+                        <a href="mailto:{{ company_data.0.email }} " class="text-decoration-none text-white"><span> <i
+                                class="fa-solid fa-envelope me-1"></i></span>
+                            <p class="d-inline">{{ company_data.0.email }}</p></a>
+                    </div>
+                    <div class="mt-1">
+                        <a href="tel:{{ company_data.0.telephone }}" class="text-decoration-none text-white"><p class="d-inline"><i
+                                class="fa-solid fa-phone-volume me-1"></i>{{ company_data.0.telephone }}</p></a>
+                    </div>
+                    <div class="mt-1">
+                        <i class="fa-solid fa-location-dot me-1"></i>
+                        <p class="d-inline">{{ company_data.0.address }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <hr class="mt-2 bg-white" style="height: 1px;">
+                <p class="text-center">Copyright {{ company_data.0.company_name }} 2022. All rights Reserved</p>
+            </div>
+        </div>
+    </div>
+</footer>

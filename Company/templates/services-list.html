@@ -1,0 +1,36 @@
+{% load static %}
+
+{% if service_list%}
+
+<section class="py-6 services reveal">
+    <section class="container">
+        <header class="text-center ">
+            <h2 class="h2 text-primary fw-bolder">Our Services</h2>
+            <h6 class="h6 text-primary fw-light">What we are known for</h6>
+        </header>
+        <section class="mt-5">
+            <div class="row row-cols-1 row-cols-lg-3 g-6">
+                {% for service in service_list|slice:"3" %}
+                <div class="col mx-auto">
+                    <div class="card mx-auto">
+                        <div class="ratio ratio-16x9">
+                            <img src="{{ service.pic.url }}" class="card-img-top " alt="...">
+                        </div>
+
+                        <div class="card-body">
+                            <h5 class="card-title text-center text-primary fw-bolder">{{ service.title }}</h5>
+                            <p class="card-text">{{ service.snippet|safe|truncatechars:150 }}</p>
+                            <a class="d-grid btn btn-primary fw-normal" href="{% url 'services-detail' service.slug %}" role="button">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <form class="d-flex align-items-start justify-content-center mt-5">
+                <a class="btn btn-primary fw-normal" href="{% url 'services'%}" role="button">See All Services</a>
+            </form>
+        </section>
+    </section>
+</section>
+
+{% endif %}

@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load compress %}
+
+{% block content %}
+<section class=" py-5 bg-light">
+    <nav class="container" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="d-inline-flex py-1 px-3 breadcrumb border border-1 border-primary fw-normal"
+            style="border-radius: 20px;">
+            <li class="breadcrumb-item">
+                <a href="{% url 'home'%}" class="text-decoration-none">
+                    <i class="fa-solid fa-house-chimney" style="margin-right: 4px;"></i>
+                    Home
+                </a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="{% url 'services'%}" class="text-decoration-none">
+                    Our Services
+                </a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">{{services.title}}</li>
+        </ol>
+    </nav>
+</section>
+
+<section class="py-6">
+    <section class="container">
+        <section class="row">
+            <section class="col-lg-9">
+
+                <section class="mt-3 ratio ratio-16x9">
+                    <img src="{{ services.pic.url }}" class="img-fluid" alt="...">
+                </section>
+
+                <header class="mt-3">
+                    <h2 class="text-primary fw-bolder">{{services.title}}</h2>
+                </header>
+
+                <section class="mt-4">
+                    <p>{{services.snippet|safe}}</p>
+                </section>
+
+            </section>
+            <section class="col-lg-3">
+                {% if job_categories %}
+                <section class="row ps-5 mb-5">
+                    <div class="card border border-2 border-primary z-index-2 mx-auto py-0"
+                         style="max-width: 415px; padding: 0px;">
+                        <div class="card-header bg-primary text-white">
+                            Project Category
+                        </div>
+                        <div class="list-group">
+                            {% for category in job_categories%}
+                            <a href="{% url 'projects-categories' category.name %}" class="list-group-item list-group-item-action">{{category}}</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </section>
+                {% endif %}
+            </section>
+
+        </section>
+
+    </section>
+
+</section>
+
+{% include 'project-list.html' %}
+
+{% endblock content %}

@@ -1,0 +1,36 @@
+{% load static %}
+
+{% if testimonial_list%}
+<section class="py-6 testimonials reveal">
+    <section class="container">
+        <header class="text-center ">
+            <h2 class="h2 text-primary fw-bolder">Testimonials</h2>
+            <h6 class="h6 text-primary">What our Customers say about us</h6>
+        </header>
+
+        <section class="row mt-1">
+            <section class="owl-carousel" id="test">
+                {% for test in testimonial_list %}
+                <div class=" owl-theme px-4 py-6 overflow-visible">
+                    <div class="card border border-2 border-primary z-index-2 mx-auto " style="max-width: 415px;">
+                        <div class="text-center pt-5">
+                            <img src="{{ test.get_photo_url }}" class="rounded-circle mx-auto"
+                                 alt="Photo of {{test.name}}">
+                        </div>
+                        <i class="overflow-visible fa-solid fa-quote-right border border-2 border-primary rounded-circle p-1 position-absolute top-0 start-50 translate-middle z-index-3 bg-white text-primary"></i>
+                        <div class="card-body">
+                            <h2 class="h4 card-title fw-light text-center text-primary">{{ test.name }}</h2>
+                            <h6 class="card-subtitle text-center">{{ test.designation }}</h6>
+                            <p class="card-text mt-1"><em>{{ test.testimony|safe|truncatechars:200 }}</em></p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </section>
+            <form class="d-flex align-items-start justify-content-center mt-3">
+                <a class="btn btn-primary fw-normal" href="{% url 'testimonials'%}" role="button">See All</a>
+            </form>
+        </section>
+    </section>
+</section>
+{% endif %}

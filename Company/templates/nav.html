@@ -1,0 +1,46 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow top-nav" id="navbar_top" >
+    <div class="container-fluid">
+        {% if company_data%}
+        <a class="navbar-brand" href="{% url 'home'%}">
+            <img src="{{ company_data.0.logo.url }}" alt="" width="59" height="52.79" class="d-inline-block align-middle">
+            <small class="text-primary h6">{{ company_data.0.company_name }}</small>
+        </a>
+        {% endif %}
+
+        <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end nav-target" id="navbarSupportedContent">
+            <ul class="navbar-nav me-3 mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link fs-6 fw-light" aria-current="page" href="{% url 'home'%}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fs-6 fw-light" href="{% url 'about'%}">About</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link fs-6 fw-light" href="{% url 'services'%}">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fs-6 fw-light" href="{% url 'projects'%}">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fs-6 fw-light" href="{% url 'testimonials'%}">Testimonials</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fs-6 fw-light" href="{% url 'contact'%}">Contact</a>
+                </li>
+            </ul>
+            <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary fw-normal d-none d-lg-block" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Request Quote
+</button>
+<!--            <form>-->
+<!--                -->
+<!--                <a class="btn btn-primary fw-normal" href="#" role="button" >Request Quote</a>-->
+<!--            </form>-->
+        </div>
+    </div>
+</nav>

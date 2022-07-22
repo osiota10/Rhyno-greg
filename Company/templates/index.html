@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load compress %}
+
+{% block title %}
+Rhyno-greg Construction Company Limited
+{% endblock %}
+
+{% block content %}
+
+{% if service_list%}
+<section class="hero-carousel">
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            {% for service in service_list %}
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{service.pk}}" class="active"
+                    aria-current="true" aria-label="Slide {{service.pk}}"></button>
+            {% endfor %}
+<!--            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"-->
+<!--                    aria-label="Slide 2"></button>-->
+<!--            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"-->
+<!--                    aria-label="Slide 3"></button>-->
+        </div>
+        <div class="carousel-inner">
+            {% for service in service_list %}
+            <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %} ratio ratio-21x9">
+                <img src="{{ service.pic.url }}" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-flex flex-column align-items-start justify-content-center">
+                    <h2 class="text-primary fw-bolder">{{ service.title }}</h2>
+                    <p>{{ service.snippet|safe|truncatechars:150 }}</p>
+                    <button type="button" class="btn btn-primary fw-normal" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">
+                        Request Quote
+                    </button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+
+<section class="py-6 bg-light about">
+    {% if stat %}
+    <section class="container mb-4">
+        {% include 'stats.html' %}
+    </section>
+    {% endif %}
+
+    {% if company_data%}
+    <section class="container">
+        <section class="row align-items-center gy-4">
+            <section class="col-lg-6">
+                <img src="{{ company_data.0.about_page_image.url }}" class="img-fluid" alt="...">
+            </section>
+            <section class="col-lg-6">
+                <h3 class="text-center text-primary fw-bolder">About Us</h3>
+                <p>{{ company_data.0.about|safe|truncatechars:600 }}
+                </p>
+                <form class="d-flex align-items-start justify-content-center">
+                    <a class="btn btn-primary fw-normal" href="{% url 'about'%}" role="button">See More</a>
+                </form>
+            </section>
+        </section>
+    </section>
+    {% endif %}
+</section>
+
+
+{% include 'services-list.html' %}
+
+{% include 'project-list.html' %}
+
+{% include 'testimonial-list.html' %}
+
+{% include 'clients-list.html' %}
+
+{% endblock content %}

@@ -1,0 +1,30 @@
+{% load static %}
+{% if page_obj.has_other_pages %}
+<section class="py-5 bg-light">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+
+            {% if page_obj.has_previous %}
+            <li class="page-item me-3"><a class="page-link" href="?page={{page_obj.previous_page_number}}">Prev</a></li>
+            {% else %}
+            <li class="page-item me-3 disabled"><a class="page-link" href="#">Prev</a></li>
+            {% endif %}
+
+
+            {% for num in page_obj.paginator.page_range %}
+            {% if page_obj.number == num %}
+            <li class="page-item me-1 active"><a class="page-link" href="?page={{ num }}">{{num}}</a>
+                {% elif num > page_obj.number|add:'-5' and num < page_obj.number|add:'5' %}
+            <li class="page-item me-1"><a class="page-link" href="?page={{ num }}">{{num}}</a>
+                {% endif %}
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+            <li class="page-item ms-1"><a class="page-link" href="?page={{page_obj.next_page_number}}">Next</a></li>
+            {% else %}
+            <li class="page-item ms-1 disabled"><a class="page-link" href="#">Next </a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</section>
+{% endif %}

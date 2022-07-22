@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load compress %}
+
+{% block title %}
+Contact Us - Rhyno-greg Construction Company Limited
+{% endblock %}
+
+{% block content %}
+<header class="card bg-dark text-white header-card ">
+    <img src="{{ company_data.0.page_header_image.url }}" height="250" class="card-img " alt="...">
+    <div class="card-img-overlay d-flex align-items-center justify-content-center img-dark-overlay">
+        <div class="flex-column">
+            <h1 class="h1 card-title text-center fw-bolder">Contact Us</h1>
+            <h6 class="h6 text-center">We love to hear from you.</h6>
+        </div>
+
+    </div>
+</header>
+
+<section class=" py-5 bg-light">
+    <nav class="container" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="d-inline-flex py-1 px-3 breadcrumb border border-1 border-primary fw-normal" style="border-radius: 20px;">
+            <li class="breadcrumb-item">
+                <a href="{% url 'home'%}" class="text-decoration-none">
+                    <i class="fa-solid fa-house-chimney" style="margin-right: 4px;"></i>
+                    Home
+                </a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
+        </ol>
+    </nav>
+</section>
+
+{% if company_data%}
+<section class="container py-6">
+        <section class="row align-items-center gy-3">
+            <section class="col-lg-6 ">
+                <div class=" text-center ">
+                    <section class="mt-4">
+                        <div class="mb-1"><i class="fa-solid fa-magnifying-glass-location me-1 fs-1 text-primary bg-light p-4 rounded-circle"></i></div>
+                        <p class="d-inline h6">{{info.0.address }}</p>
+                    </section>
+                    <section class="mt-4">
+                        <div class="mb-1"><i class="fa-solid fa-envelope me-1 fs-1 text-primary bg-light p-4 rounded-circle"></i></div>
+                        <a href="mailto:{{ info.0.email }} " class="text-decoration-none"><span
+                                class="custom-icon"></span>
+                            <p class="d-inline h6">{{ info.0.email }}</p></a>
+                    </section>
+                    <section class="mt-4">
+                        <div class="mb-1"><i class="fa-solid fa-phone-volume me-1 fs-1 text-primary bg-light p-4 rounded-circle"></i></div>
+                        <a href="tel:{{ info.0.telephone }}" class="text-decoration-none"><p class="d-inline h6">
+                            {{info.0.telephone }}</p></a>
+                    </section>
+                </div>
+            </section>
+            <section class="col-lg-6">
+                <header class="text-center mb-4">
+            <h2 class="h2 text-primary fw-bolder">Contact Form</h2>
+        </header>
+                <form class="row g-3" method="POST" id="ContactForm">
+                    {% csrf_token %}
+
+                    <div class="col-md-6">
+                        <label for="fullName" class="form-label">Full Name</label>
+                        <input type="text" class="form-control inputfield" aria-label="Full name" id="fullName" name="name">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="subject" class="form-label">Subject</label>
+                        <select id="subject" class="form-select inputfield" name="category">
+                            <option disabled selected> Select Subject </option>
+                            {% if job_categories %}
+                                {% for category in job_categories%}
+                                    <option value="{{category.id}}"> {{category}} </option>
+                                {% endfor %}
+
+                            {% endif %}
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputEmail4" class="form-label">Email</label>
+                        <input type="email" class="form-control inputfield" id="inputEmail4" name="email">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="phoneNumber" class="form-label">Phone Number</label>
+                        <input type="text" class="form-control inputfield" aria-label="Phone number" id="phoneNumber" name="phone_number">
+                    </div>
+                    <div class="col-12">
+                        <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="message"></textarea>
+                    </div>
+                    <input type="hidden" name="form_type" value="ContactForm">
+                    <div class="col-12 d-grid">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </section>
+        </section>
+    </section>
+{% endif %}
+
+{% include 'clients-list.html' %}
+
+{% include 'testimonial-list.html' %}
+
+{% endblock content %}

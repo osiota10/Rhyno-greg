@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load compress %}
+
+{% block title %}
+Rhyno-greg Construction Company Limited
+{% endblock %}
+
+{% block content %}
+<ul>
+    {% for date in date_list %}
+        <li>{{ date|date }}</li>
+    {% endfor %}
+</ul>
+
+<div>
+    <h1>All Articles for {{ year|date:"Y" }}</h1>
+    {% for obj in object_list %}
+        <p>
+            {{ obj.name }} - {{ obj.date|date:"F j, Y" }}
+        </p>
+    {% endfor %}
+</div>
+<p>{{ year|date:"Y" }}</p>
+
+<p>{{ next_year }}</p>
+
+
+
+{% endblock content %}

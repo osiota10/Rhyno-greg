@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load compress %}
+
+{% block title %}
+Services - Rhyno-greg Construction Company Limited
+{% endblock %}
+
+{% block content %}
+<header class="card bg-dark text-white header-card ">
+    <img src="{{ company_data.0.page_header_image.url }}" height="250" class="card-img " alt="...">
+    <div class="card-img-overlay d-flex align-items-center justify-content-center img-dark-overlay">
+        <div class="flex-column">
+            <h1 class="h1 card-title text-center fw-bolder">Services</h1>
+            <h6 class="h6 text-center">Our Top-notch Services</h6>
+        </div>
+
+    </div>
+</header>
+
+<section class=" py-5 bg-light">
+    <nav class="container" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="d-inline-flex py-1 px-3 breadcrumb border border-1 border-primary fw-normal" style="border-radius: 20px;">
+            <li class="breadcrumb-item">
+                <a href="{% url 'home'%}" class="text-decoration-none">
+                    <i class="fa-solid fa-house-chimney" style="margin-right: 4px;"></i>
+                    Home
+                </a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Services</li>
+        </ol>
+    </nav>
+</section>
+
+{% if services%}
+<section class="py-8 services-page">
+    <section class="container">
+            <div class="row row-cols-1 row-cols-lg-3 g-6">
+                {% for service in services %}
+                <div class="col mx-auto">
+                    <div class="card mx-auto">
+                        <div class="ratio ratio-16x9">
+                            <img src="{{ service.pic.url }}" class="card-img-top " alt="...">
+                        </div>
+
+                        <div class="card-body">
+                            <h5 class="card-title text-center text-primary fw-bolder">{{ service.title }}</h5>
+                            <p class="card-text">{{ service.snippet|safe|truncatechars:150 }}</p>
+                            <a class="d-grid btn btn-primary fw-normal" href="{% url 'services-detail' service.slug %}" role="button">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+    </section>
+</section>
+{% endif %}
+
+{% include 'pagination.html' %}
+
+{% endblock content %}

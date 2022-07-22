@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load compress %}
+
+{% block title %}
+Terms and Conditions - Rhyno-greg Construction Company Limited
+{% endblock %}
+
+{% block content %}
+<header class="card bg-dark text-white header-card ">
+    <img src="{{ company_data.0.page_header_image.url }}" height="250" class="card-img " alt="...">
+    <div class="card-img-overlay d-flex align-items-center justify-content-center img-dark-overlay">
+        <div class="flex-column">
+            <h1 class="h1 card-title text-center">Terms and Conditions</h1>
+            <h6 class="h6 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fringilla turpis adipiscing ut sapien</h6>
+        </div>
+
+    </div>
+</header>
+
+<section class=" py-5 bg-light">
+    <nav class="container" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="d-inline-flex py-1 px-3 breadcrumb border border-1 border-primary fw-normal" style="border-radius: 20px;">
+            <li class="breadcrumb-item">
+                <a href="{% url 'home'%}" class="text-decoration-none">
+                    <i class="fa-solid fa-house-chimney" style="margin-right: 4px;"></i>
+                    Home
+                </a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Terms and Conditions</li>
+        </ol>
+    </nav>
+</section>
+
+<section class="py-8">
+    <section class="container ">
+    <section class="row">
+        <section class="col-lg-10 mx-auto">
+
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus
+                    sit amet luctus venenatis Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
+                    purus sit amet luctus venenatis Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
+                    aliquam, purus sit amet luctus venenatis Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                    ut aliquam, purus sit amet luctus venenatis Lorem ipsum dolor sit amet, consectetur Lorem ipsum
+                    dolor
+                    sit amet,
+                    consectetur adipiscing elit ut aliquam, purus
+                    sit amet luctus venenatis Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
+                    purus sit amet luctus venenatis Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
+                    aliquam, purus sit amet luctus venenatis Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                    ut aliquam, purus sit amet luctus venenatis Lorem ipsum dolor sit amet, consectetur Lorem ipsum
+                    dolor
+                    sit amet,
+                    consectetur adipiscing elit ut aliquam, purus
+                    sit amet luctus venenatis Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
+                    purus sit amet luctus venenatis Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
+                    aliquam, purus sit amet luctus venenatis Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                    ut aliquam, purus sit amet luctus venenatis Lorem ipsum dolor sit amet, consectetur Lorem ipsum
+                    dolor
+                    sit amet,
+                    consectetur adipiscing elit ut aliquam, purus
+                    sit amet luctus venenatis Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
+                    purus sit amet luctus venenatis Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
+                    aliquam, purus sit amet luctus venenatis Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                    ut aliquam, purus sit amet luctus venenatis Lorem ipsum dolor sit amet, consectetur Lorem ipsum
+                    dolor
+                    sit amet,
+                    consectetur adipiscing elit ut aliquam, purus
+                    sit amet luctus venenatis Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
+                    purus sit amet luctus venenatis Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
+                    aliquam, purus sit amet luctus venenatis Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                    ut aliquam, purus sit amet luctus venenatis Lorem ipsum dolor sit amet, consectetur
+                </p>
+
+        </section>
+    </section>
+</section>
+</section>
+{% endblock content %}

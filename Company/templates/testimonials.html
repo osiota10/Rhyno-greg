@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load compress %}
+
+{% block title %}
+Testimonials - Rhyno-greg Construction Company Limited
+{% endblock %}
+
+{% block content %}
+<header class="card bg-dark text-white header-card ">
+    <img src="{{ company_data.0.page_header_image.url }}" height="250" class="card-img " alt="Header Image">
+    <div class="card-img-overlay d-flex align-items-center justify-content-center img-dark-overlay">
+        <div class="flex-column">
+            <h1 class="h1 card-title text-center fw-bolder">Testimonials</h1>
+            <h5 class="h5 text-center">We cherish our Customers as the greatest treasure. Here is what they say about us</h5>
+        </div>
+
+    </div>
+</header>
+
+<section class=" py-4 bg-light">
+    <nav class="container" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="d-inline-flex py-1 px-3 breadcrumb border border-1 border-primary fw-normal" style="border-radius: 20px;">
+            <li class="breadcrumb-item">
+                <a href="{% url 'home'%}" class="text-decoration-none">
+                    <i class="fa-solid fa-house-chimney" style="margin-right: 4px;"></i>
+                    Home
+                </a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Testimonials</li>
+        </ol>
+    </nav>
+</section>
+
+{% if testimonials%}
+<section class="py-8 testimonial-page">
+    <section class="container">
+            <div class="row row-cols-1 row-cols-lg-3 g-6">
+                {% for test in testimonials %}
+                <div class="col mx-auto">
+                    <div class="card border border-2 border-primary z-index-2 mx-auto " style="max-width: 415px;">
+                        <div class="text-center pt-5">
+                            <img src="{{ test.get_photo_url }}" class="rounded-circle mx-auto"
+                                 alt="Photo of {{test.name}}">
+                        </div>
+                        <i class="overflow-visible fa-solid fa-quote-right border border-2 border-primary rounded-circle p-1 position-absolute top-0 start-50 translate-middle z-index-3 bg-white text-primary"></i>
+                        <div class="card-body">
+                            <h4 class="h4 card-title fw-light text-center text-primary">{{ test.name }}</h4>
+                            <h6 class="card-subtitle text-center">{{ test.designation }}</h6>
+                            <p class="card-text mt-1"><em>{{ test.testimony|safe|truncatechars:200 }}</em></p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+    </section>
+</section>
+{% endif %}
+
+{% include 'pagination.html' %}
+
+{% endblock content %}

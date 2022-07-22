@@ -1,0 +1,39 @@
+{% load static %}
+
+<section class="py-6 email bg-light reveal">
+    <section class="container">
+        <header class="text-center ">
+            <h2 class="h2 text-primary fw-bolder">Updates Subscription</h2>
+            <h6 class="h6 text-primary">Recieve exclusive updates straight to your inbox</h6>
+        </header>
+
+        <section class="row justify-content-center mt-2">
+            <section class="col-lg-6">
+                <form method="POST" id="SubscriptionForm">
+                    {% csrf_token %}
+                    <div class="mb-1">
+                        <label for="inputEmail3" class="form-label">Email</label>
+                        <input type="email" class="form-control inputfield" id="inputEmail3" name="email">
+                    </div>
+                    <div class="">
+                        <div class="form-check">
+                            <input class="form-check-input " type="checkbox" id="gridCheck" required>
+                            <input type="hidden" name="form_type" value="SubscriptionForm">
+                            <label class="form-check-label " for="gridCheck">
+                                <small>By submitting you agree to the <a href="{% url 'privacy-policy'%}"
+                                                                         class="text-decoration-none fw-bold">Privacy
+                                    Policy</a> and <a href="{% url 'terms-and-conditions'%}"
+                                                      class="text-decoration-none fw-bold">Terms and
+                                    Conditions</a></small>
+                            </label>
+                        </div>
+
+                        <div class="d-grid mt-3">
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </section>
+    </section>
+</section>

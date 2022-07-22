@@ -1,0 +1,326 @@
+{% load static %}
+{% load compress %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/f060f2104e.js" crossorigin="anonymous"></script>
+    <!--        <script src="{% static 'JavaScript/Carousel.js' %}"></script>-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+          integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+          crossorigin="anonymous"/>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+          integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+          crossorigin="anonymous"/>
+
+    {% compress css %}
+    <link type="text/x-scss" href="{% static 'main.scss' %}" rel="stylesheet" media="screen"/>
+    {% endcompress %}
+    <link rel="stylesheet" href="{% static 'CSS/lightbox.css' %}">
+    <!--    <script defer src="{% static 'JavaScript/new-main.js' %}"></script>-->
+    <title>{% block title %}{% endblock %}</title>
+
+    {% if company_data%}
+    <link rel="shortcut icon" href="{{ company_data.0.logo.url }}">
+    {% endif %}
+
+</head>
+
+<body>
+<main>
+    {% if storage%}
+    <div class="position-fixed bottom-0 end-0 p-3 " style="z-index: 11">
+        <div id="liveToast" class="toast hide text-white bg-primary" role="alert" aria-live="assertive"
+             aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Thank you</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            {% for msg in storage %}
+            <div class="toast-body">
+                {{msg}}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-center">
+                    <h5 class="modal-title text-white" id="exampleModalLabel">Request a Quote</h5>
+                    <button type="button" class="btn-close text-white" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="row g-3" method="POST" id="QuotationForm">
+                        {% csrf_token %}
+                        <div class="col-md-12">
+                            <label for="fullName" class="form-label">Full Name</label>
+                            <input type="text" class="form-control inputfield" aria-label="Full name" id="fullName"
+                                   name="name">
+                        </div>
+                        <div class="col-md-12">
+                            <label for="inputEmail4" class="form-label">Email</label>
+                            <input type="email" class="form-control inputfield" id="inputEmail4" name="email">
+                        </div>
+                        <div class="col-md-12">
+                            <label for="phoneNumber" class="form-label">Phone Number</label>
+                            <input type="text" class="form-control inputfield" aria-label="Phone number"
+                                   id="phoneNumber" name="phone_number">
+                        </div>
+                        <div class="col-md-12">
+                            <label for="subject" class="form-label">Category</label>
+                            <select id="subject" class="form-select inputfield" name="category">
+                                <option disabled selected> Select Subject</option>
+                                {% if job_categories %}
+                                {% for category in job_categories%}
+                                <option value="{{category.id}}"> {{category}}</option>
+                                {% endfor %}
+
+                                {% endif %}
+                            </select>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="location" class="form-label">Location</label>
+                            <input type="text" class="form-control inputfield" aria-label="Full name" id="location"
+                                   name="location">
+                        </div>
+
+                        <div class="col-12">
+                            <label for="exampleFormControlTextarea1" class="form-label">Brief Description</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                      name="brief_description"></textarea>
+                        </div>
+                        <div class="input-group mb-3 mt-1">
+                            <input type="file" class="form-control" id="inputGroupFile02" name="attach_file"
+                                   accept="application/pdf">
+                        </div>
+                        <input type="hidden" name="form_type" value="QuotationForm">
+
+                        <div class="modal-footer">
+                            <div class="col-12 d-grid">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <header>
+        {% include 'nav.html' %}
+    </header>
+
+    <section>
+        {% block content %}
+
+        {% endblock content%}
+    </section>
+
+    {% if request.path != '/contact' and request.path != '/thank-you' %}
+    {% include 'get-in-touch.html' %}
+    {% endif %}
+
+    {% include 'email-update.html' %}
+
+
+    {% if socials %}
+    <div class="position-fixed fab-button dropdown" style="bottom: 24px; right: 24px;">
+        <button class="btn btn-secondary" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false"><i class="fa-solid fa-paper-plane"></i></button>
+        <section class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+            {% for social in socials %}
+            <a class="btn btn-secondary mb-2" href="{{ social.url }}" role="button" target="_blank"><i
+                    class="{{ social.font_awesome_class }} fs-5"></i></a>
+            {% endfor %}
+        </section>
+    </div>
+    {% endif %}
+
+    <section class="mt-1">
+        {% for social in socials %}
+        <a role="button" href="{{ social.url }}"
+           class="{{ social.font_awesome_class }} fs-4 me-1 text-white text-decoration-none"
+           data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{ social.name }}"></a>
+        {% endfor %}
+    </section>
+
+
+    <footer id="footer">
+        {% include 'footer.html' %}
+    </footer>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+        crossorigin="anonymous"></script>
+<script>
+        $('#test').owlCarousel({
+            loop: true,
+            margin: 15,
+            autoplay: true,
+            nav: false,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 1
+                },
+                1000: {
+                    items: 3
+                }
+            }
+        })
+
+
+
+<!--slow scroll effect-->
+    window.addEventListener('scroll', reveal);
+
+    function reveal(){
+      var reveals = document.querySelectorAll('.reveal');
+
+      for(var i = 0; i < reveals.length; i++){
+
+        var windowheight = window.innerHeight;
+        var revealtop = reveals[i].getBoundingClientRect().top;
+        var revealpoint = 150;
+
+        if(revealtop < windowheight - revealpoint){
+          reveals[i].classList.add('active-reveal');
+        }
+        else{
+          reveals[i].classList.remove('active-reveal');
+        }
+      }
+    }
+
+
+
+
+
+
+</script>
+
+<script>
+    $('#clients').owlCarousel({
+            loop: true,
+            margin: 15,
+            autoplay: true,
+            nav: false,
+            responsive: {
+                0: {
+                    items: 3
+                },
+                600: {
+                    items: 5
+                },
+                1000: {
+                    items: 8
+                }
+            }
+        })
+
+
+<!--number count-->
+let valueDisplays = document.querySelectorAll(".num");
+let interval = 5000;
+
+valueDisplays.forEach((valueDisplays) => {
+    let startValue = 0;
+    let endValue = parseInt(valueDisplays.getAttribute("data-val"));
+    let duration = Math.floor(interval / endValue);
+    let counter = setInterval(function () {
+        startValue += 1;
+        valueDisplays.textContent = startValue;
+        if (startValue == endValue){
+            clearInterval(counter);
+        }
+    }, duration);
+});
+
+
+
+
+
+
+</script>
+
+<script>
+const links = document.querySelectorAll('.nav-target ul li a');
+
+for (link of links) {
+    if (window.location.pathname == link.getAttribute('href')) {
+        link.classList.add('custom-active')
+    } else {
+        link.classList.remove('custom-active')
+    }
+}
+
+const pageLinks = document.querySelectorAll('.project-nav li a');
+
+for (link of pageLinks) {
+    if (window.location.pathname == link.getAttribute('href')) {
+        link.classList.add('active')
+    } else {
+        link.classList.remove('active')
+    }
+}
+
+
+document.addEventListener("DOMContentLoaded", function(){
+  window.addEventListener('scroll', function() {
+      if (window.scrollY > 50) {
+        document.getElementById('navbar_top').classList.add('fixed-top');
+        // add padding top to show content behind navbar
+        navbar_height = document.querySelector('.navbar').offsetHeight;
+        document.body.style.paddingTop = navbar_height + 'px';
+      } else {
+        document.getElementById('navbar_top').classList.remove('fixed-top');
+         // remove padding top from body
+        document.body.style.paddingTop = '0';
+      }
+  });
+});
+
+
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+<script>
+    var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+    var toastList = toastElList.map(function (toastEl) {
+    return new bootstrap.Toast(toastEl, option)
+})
+
+
+</script>
+
+<script>
+    $(document).ready(function() {
+        $(".toast").toast('show');
+    });
+
+
+</script>
+
+<script src="{% static 'JavaScript/lightbox-plus-jquery.js' %}"></script>
+</body>
+
+</html>
+
+

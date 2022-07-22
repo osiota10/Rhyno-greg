@@ -1,0 +1,22 @@
+{% load static %}
+
+{% if clients%}
+<section class="py-6 clients bg-light reveal">
+    <section class="container">
+        <header class="text-center ">
+            <h2 class="h2 text-primary fw-bolder">Our Client</h2>
+            <h6 class="h6 text-primary">Clients we have Served over the years</h6>
+        </header>
+
+        <section class="row mt-1">
+            <section class="owl-carousel" id="clients">
+                {% for client in clients %}
+                <div class=" owl-theme pt-3 ">
+                    <img src="{{ client.logo.url }}" class="img-fluid mx-auto" alt="logo of {{ client.name }}" >
+                </div>
+                {% endfor %}
+            </section>
+        </section>
+    </section>
+</section>
+{% endif %}

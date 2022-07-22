@@ -1,0 +1,54 @@
+{% load static %}
+
+<section class="py-6 contact-us reveal">
+    <section class="container">
+        <header class="text-center mb-4">
+            <h2 class="h2 text-primary fw-bolder">Contact us</h2>
+            <h6 class="h6 text-primary">For all enquiries, please email us using our contact form below</h6>
+        </header>
+
+        <section class="row align-items-center gy-4">
+            <section class="col-lg-6">
+                <img src="{{ company_data.0.contact_page_image.url }}" class="img-fluid" alt="...">
+            </section>
+            <section class="col-lg-6">
+                <form class="row g-3" method="POST" id="ContactForm">
+                    {% csrf_token %}
+
+                    <div class="col-md-6">
+                        <label for="fullName" class="form-label">Full Name</label>
+                        <input type="text" class="form-control inputfield" aria-label="Full name" id="fullName" name="name">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="subject" class="form-label">Subject</label>
+                        <select id="subject" class="form-select inputfield" name="category">
+                            <option disabled selected> Select Subject </option>
+                            {% if job_categories %}
+                                {% for category in job_categories%}
+                                    <option value="{{category.id}}"> {{category}} </option>
+                                {% endfor %}
+
+                            {% endif %}
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputEmail4" class="form-label">Email</label>
+                        <input type="email" class="form-control inputfield" id="inputEmail4" name="email">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="phoneNumber" class="form-label">Phone Number</label>
+                        <input type="text" class="form-control inputfield" aria-label="Phone number" id="phoneNumber" name="phone_number">
+                    </div>
+                    <div class="col-12">
+                        <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="message"></textarea>
+                    </div>
+                    <input type="hidden" name="form_type" value="ContactForm">
+                    <div class="col-12 d-grid">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </section>
+        </section>
+    </section>
+</section>

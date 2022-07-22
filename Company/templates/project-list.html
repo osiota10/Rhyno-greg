@@ -1,0 +1,158 @@
+{% load static %}
+
+{% if projects_list %}
+<section class="py-6 projects bg-light">
+    <section class="container">
+        <header class="text-center ">
+            <h2 class="h2 text-primary fw-bolder">Our Projects</h2>
+            <h6 class="h6 text-primary">Our Latest Projects</h6>
+<!--            navigation-->
+            <ul class="nav nav-pills d-flex align-items-start justify-content-center flex-nowrap overflow-auto" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                            aria-selected="true">All
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
+                            aria-selected="false">Completed
+                    </button>
+                </li>
+                <li class="nav-item text-nowrap" role="presentation">
+                    <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
+                            aria-selected="false">In Development
+                    </button>
+                </li>
+            </ul>
+        </header>
+
+        <section class="row mt-5">
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active all" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                    {% for project in projects_list|slice:"3" %}
+                    <section class="row align-items-center gy-4 mb-5 reveal">
+                        <section class="col-lg-6">
+                <div id="carouselExampleCaptions1" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleCaptions1" data-bs-slide-to="0"
+                                class="active"
+                                aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions1" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions1" data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        {% for item in project.projectimage_set.all %}
+                            <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %} ratio ratio-4x3 ">
+                                <img src="{{item.image.url}}" class="img-fluid" alt="Project Image">
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+                        <section class="col-lg-6">
+                <h3 class="text-center text-primary fw-bolder">{{ project.name }}</h3>
+                <section class="text-center text-primary">
+                    <span class="badge rounded-pill bg-primary me-3 fw-bold">{{ project.status }}</span>
+                    <time datetime="2021-12" class="me-3 fw-bold"><i class="fa-solid fa-calendar-days me-1"></i>{{ project.date }}
+                    </time>
+                    <span class="fw-bold text-nowrap"><i class="fa-solid fa-tags me-1"></i>{{ project.category }}</span>
+                </section>
+                <p class="mt-1">{{ project.description|safe|truncatechars:400 }}</p>
+                <form class="d-flex align-items-start justify-content-center">
+                    <a class="btn btn-primary fw-normal" href="{% url 'projects-detail' project.slug %}" role="button">View Project Information</a>
+                </form>
+            </section>
+                    </section>
+                    {% endfor %}
+                </div>
+                <div class="tab-pane fade completed" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                    {% for project in completed_project_list|slice:"3" %}
+                    <section class="row align-items-center gy-4 mb-5">
+                        <section class="col-lg-6">
+                <div id="carouselExampleCaptions8" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleCaptions8" data-bs-slide-to="0"
+                                class="active"
+                                aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions1" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions1" data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        {% for item in project.projectimage_set.all %}
+                            <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %} ratio ratio-4x3 ">
+                                <img src="{{item.image.url}}" class="img-fluid" alt="...">
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+                        <section class="col-lg-6">
+                <h3 class="text-center text-primary fw-bolder">{{ project.name }}</h3>
+                <section class="text-center text-primary">
+                    <span class="badge rounded-pill bg-primary me-3 fw-bold">{{ project.status }}</span>
+                    <time datetime="2021-12" class="me-3 fw-bold"><i class="fa-solid fa-calendar-days me-1"></i>{{ project.date }}
+                    </time>
+                    <span class="fw-bold text-nowrap"><i class="fa-solid fa-tags me-1"></i>{{ project.category }}</span>
+                </section>
+                <p class="mt-1">{{ project.description|safe|truncatechars:400 }}</p>
+                <form class="d-flex align-items-start justify-content-center">
+                    <a class="btn btn-primary fw-normal" href="{% url 'projects-detail' project.slug %}" role="button">View Project Information</a>
+                </form>
+            </section>
+                    </section>
+                    {% endfor %}
+                </div>
+                <div class="tab-pane fade inDevelopment" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                    {% for project in in_dev_project_list|slice:"3" %}
+                    <section class="row align-items-center gy-4 mb-5">
+                        <section class="col-lg-6">
+                <div id="carouselExampleCaptions9" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleCaptions9" data-bs-slide-to="0"
+                                class="active"
+                                aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions1" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions1" data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        {% for item in project.projectimage_set.all %}
+                            <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %} ratio ratio-4x3 ">
+                                <img src="{{item.image.url}}" class="img-fluid" alt="...">
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+                        <section class="col-lg-6">
+                <h3 class="text-center text-primary fw-bolder">{{ project.name }}</h3>
+                <section class="text-center text-primary">
+                    <span class="badge rounded-pill bg-primary me-3 fw-bold">{{ project.status }}</span>
+                    <time datetime="2021-12" class="me-3 fw-bold"><i class="fa-solid fa-calendar-days me-1"></i>{{ project.date }}
+                    </time>
+                    <span class="fw-bold text-nowrap"><i class="fa-solid fa-tags me-1"></i>{{ project.category }}</span>
+                </section>
+                <p class="mt-1">{{ project.description|safe|truncatechars:400 }}</p>
+                <form class="d-flex align-items-start justify-content-center">
+                    <a class="btn btn-primary fw-normal" href="{% url 'projects-detail' project.slug %}" role="button">View Project Information</a>
+                </form>
+            </section>
+                    </section>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <form class="d-flex align-items-start justify-content-center">
+            <a class="btn btn-primary fw-normal" href="{% url 'projects'%}" role="button">See All Projects</a>
+        </form>
+    </section>
+</section>
+{% endif %}

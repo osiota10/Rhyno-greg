@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load compress %}
+
+{% block title %}
+Thank you - Rhyno-greg Construction Company Limited
+{% endblock %}
+
+{% block content %}
+
+
+<section class=" py-5 bg-light">
+    <nav class="container" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="d-inline-flex py-1 px-3 breadcrumb border border-1 border-primary fw-normal"
+            style="border-radius: 20px;">
+            <li class="breadcrumb-item">
+                <a href="{% url 'home'%}" class="text-decoration-none">
+                    <i class="fa-solid fa-house-chimney" style="margin-right: 4px;"></i>
+                    Home
+                </a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Thank you</li>
+        </ol>
+    </nav>
+</section>
+
+<section class="py-8">
+    <section class="container ">
+        <section class="row">
+            <section class="col-lg-6 mx-auto">
+                <div class="ratio ratio-4x3 mx-auto mb-5" style="max-width: 415px;">
+                    <img src="{% static 'Images/back (1).jpg' %}" class="img-fluid " alt="...">
+                </div>
+
+                <h3>Thank you for your inquiry.</h3>
+                <p>
+                    Our Business Team will get in touch with you in next 24 hours. If you would like to speak to someone
+                    immediately, please email at lead@spec-india.com or call at +91-79-26404031/32/33/34 (India) or
+                    +1-9084509862 (US)
+                </p>
+
+            </section>
+        </section>
+    </section>
+</section>
+
+{% endblock content %}
