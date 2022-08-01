@@ -3,7 +3,7 @@
 {% load compress %}
 
 {% block title %}
-About - Rhyno-greg Construction Company Limited
+About - Rhynogreg CEC Limited
 {% endblock %}
 
 {% block content %}
@@ -13,8 +13,6 @@ About - Rhyno-greg Construction Company Limited
     <div class="card-img-overlay d-flex align-items-center justify-content-center img-dark-overlay">
         <div class="flex-column">
             <h1 class="h1 card-title fw-bolder text-center">About us</h1>
-            <h6 class="h6 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fringilla turpis
-                adipiscing ut sapien</h6>
         </div>
 
     </div>
@@ -66,8 +64,7 @@ About - Rhyno-greg Construction Company Limited
         <section class="col-lg-10 mx-auto">
             <div class="clearfix my-6">
                 <header class="text-center ">
-                    <h2 class="h2 text-center text-primary fw-bolder">About Us</h2>
-                    <h6 class="h6">How we came into Existence</h6>
+                    <h2 class="h2 text-center text-primary fw-bolder">Who we are</h2>
                 </header>
                 <img src="{{ company_data.0.about_page_image.url }}"
                      class="col-md-6 float-md-end mb-2 ms-md-3 img-fluid"
@@ -94,8 +91,8 @@ About - Rhyno-greg Construction Company Limited
 <section class="py-6 certifications bg-light reveal">
     <section class="container">
         <header class="text-center ">
-            <h2 class="h2 text-primary fw-bolder">Certification and Awards</h2>
-            <h6 class="h6">Lorem ipsum dolor sit amet, consectetur</h6>
+            <h2 class="h2 text-primary fw-bolder">Certifications and Awards</h2>
+<!--            <h6 class="h6">Lorem ipsum dolor sit amet, consectetur</h6>-->
         </header>
         <div class="row row-cols-1 row-cols-6 g-4 mt-3">
             {% for items in certification %}

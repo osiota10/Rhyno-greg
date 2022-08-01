@@ -4,7 +4,7 @@
 {% load compress %}
 
 {% block title %}
-Rhyno-greg Construction Company Limited
+{{cats}} Projects- Rhynogreg CEC Limited
 {% endblock %}
 
 {% block content %}
@@ -13,8 +13,6 @@ Rhyno-greg Construction Company Limited
     <div class="card-img-overlay d-flex align-items-center justify-content-center img-dark-overlay">
         <div class="flex-column">
             <h1 class="h1 card-title text-center fw-bolder">{{cats}} Projects</h1>
-            <h6 class="h6 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fringilla turpis
-                adipiscing ut sapien</h6>
         </div>
 
     </div>
@@ -71,7 +69,7 @@ Rhyno-greg Construction Company Limited
                     <span class="badge rounded-pill bg-primary me-3 fw-bold">{{ project.status }}</span>
                     <time datetime="2021-12" class="me-3 fw-bold"><i class="fa-solid fa-calendar-days me-1"></i>{{ project.date }}
                     </time>
-                    <span class="fw-bold"><i class="fa-solid fa-tags me-1"></i> <a href="#">{{ project.category }}</a></span>
+                    <span class="fw-bold"><i class="fa-solid fa-tags me-1"></i>{{ project.category }}</span>
                 </section>
                 <p class="mt-1">{{ project.description|safe|truncatechars:450 }}</p>
                 <form class="d-flex align-items-start justify-content-center">

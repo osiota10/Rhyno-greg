@@ -136,7 +136,7 @@
     {% if socials %}
     <div class="position-fixed fab-button dropdown" style="bottom: 24px; right: 24px;">
         <button class="btn btn-secondary" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false"><i class="fa-solid fa-paper-plane"></i></button>
+                aria-expanded="false"><i class="fa-solid fa-envelope"></i></button>
         <section class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
             {% for social in socials %}
             <a class="btn btn-secondary mb-2" href="{{ social.url }}" role="button" target="_blank"><i
@@ -146,13 +146,6 @@
     </div>
     {% endif %}
 
-    <section class="mt-1">
-        {% for social in socials %}
-        <a role="button" href="{{ social.url }}"
-           class="{{ social.font_awesome_class }} fs-4 me-1 text-white text-decoration-none"
-           data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{ social.name }}"></a>
-        {% endfor %}
-    </section>
 
 
     <footer id="footer">
@@ -204,12 +197,6 @@
         }
       }
     }
-
-
-
-
-
-
 </script>
 
 <script>
@@ -249,11 +236,6 @@ valueDisplays.forEach((valueDisplays) => {
     }, duration);
 });
 
-
-
-
-
-
 </script>
 
 <script>
@@ -277,6 +259,15 @@ for (link of pageLinks) {
     }
 }
 
+const projectLinks = document.querySelectorAll('.project-status-nav li a');
+
+for (link of projectLinks) {
+    if (window.location.pathname == link.getAttribute('href')) {
+        link.classList.add('active')
+    } else {
+        link.classList.remove('active')
+    }
+}
 
 document.addEventListener("DOMContentLoaded", function(){
   window.addEventListener('scroll', function() {

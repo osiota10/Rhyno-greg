@@ -95,6 +95,7 @@ $navbar-padding-x:  80px;
 }
 $primary: #065473;
 $secondary: #077099;
+
 //Carousel
 $carousel-indicator-width:           16px;
 $carousel-indicator-height:          16px;
@@ -352,6 +353,12 @@ color:white;
   opacity: 1;
 }
 
+.project-status-nav{
+overflow-x: auto;
+    &::-webkit-scrollbar {
+  display: none;
+    }
+}
 
 @import './scss/_functions.scss';
  @import './scss/_variables.scss';
