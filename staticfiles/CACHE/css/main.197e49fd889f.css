@@ -18,58 +18,58 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   .navbar-expand-lg .navbar-nav .nav-link {
     padding: 10px !important; } }
 
-/* line 116, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+/* line 117, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
 .inputfield {
   height: 48px; }
 
-/* line 160, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+/* line 161, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
 .pagination .page-link {
   border-radius: 5px; }
 
-/* line 163, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+/* line 164, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
 .pagination .page-link:focus,
 .pagination .page-link:hover {
   color: #fff !important; }
 
-/* line 167, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+/* line 168, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
 ol, ul, dl {
   margin-bottom: 0 !important; }
 
-/* line 170, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+/* line 171, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
 .hero-img {
   height: 607px; }
   @media (max-width: 767.98px) {
-    /* line 170, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+    /* line 171, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
     .hero-img {
       height: 250px; } }
-/* line 177, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+/* line 178, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
   color: #065473 !important;
   background-color: #f8f9fa !important;
   border-bottom: 5px solid #065473 !important;
   border-radius: 0px !important; }
 
-/* line 184, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+/* line 185, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
 .testimonial-page .col img,
 .testimonials .owl-carousel .owl-item img {
   width: 100px;
   height: 100px; }
 
-/* line 190, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+/* line 191, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
 .card:hover:not(.card.header-card) {
   transform: translate(4px, -4px);
   transform: scale(1.1);
   transition: .5s; }
 
-/* line 197, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+/* line 198, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
 .card:not(.card.header-card) {
   transition: .5s;
   max-width: 415px; }
-  /* line 200, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+  /* line 201, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
   .card:not(.card.header-card) p {
     color: #666261; }
 
-/* line 209, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+/* line 210, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
 .carousel-caption {
   height: 100%;
   width: 50% !important;
@@ -79,21 +79,21 @@ ol, ul, dl {
   padding: 0px 80px 0px 80px;
   background: linear-gradient(90.38deg, #FFFFFF 0.29%, rgba(255, 255, 255, 0.9) 19.84%, rgba(255, 255, 255, 0.8) 41.05%, rgba(255, 255, 255, 0.75) 60.72%, rgba(255, 255, 255, 0.75) 79.86%, rgba(255, 255, 255, 0.02) 98.49%); }
 
-/* line 219, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+/* line 220, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
 .carousel-indicators {
   margin-right: 0 !important;
   margin-bottom: 8px !important;
   margin-left: 0 !important; }
 
-/* line 225, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+/* line 226, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
 .carousel-indicators [data-bs-target] {
   border-radius: 50%; }
 
-/* line 229, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+/* line 230, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
 .img-dark-overlay {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)); }
 
-/* line 233, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+/* line 234, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
 .img-dark-overlay,
 .card.header-card img,
 .card.header-card {
@@ -101,7 +101,7 @@ ol, ul, dl {
   border-radius: 0px !important;
   border: none; }
 
-/* line 243, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+/* line 244, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
 .custom-active {
   font-weight: bold;
   color: #065473 !important;
@@ -139,21 +139,21 @@ ol, ul, dl {
     transform: translatey(0px) scale(1);
     opacity: 1; } }
 
-/* line 291, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+/* line 292, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
 * {
   margin: 0;
   padding: 0; }
 
-/* line 296, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+/* line 297, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
 html, body {
   background: #eaedf2;
   font-family: 'Roboto', sans-serif; }
 
-/* line 301, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+/* line 302, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
 .fab-button {
   z-index: 9999; }
 
-/* line 305, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+/* line 306, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
 .fab-button .dropdown-menu {
   background-color: transparent !important;
   border: none !important;
@@ -164,25 +164,25 @@ html, body {
   -o-transition: all 2s;
   transition: all 2s; }
 
-/* line 316, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+/* line 317, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
 .fab-button .dropdown-menu.show a {
   display: flex;
   align-items: center;
   justify-content: center; }
 
-/* line 322, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+/* line 323, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
 .fab-button button {
   border-radius: 50% !important;
   width: 70px !important;
   height: 70px !important; }
 
-/* line 329, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+/* line 330, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
 .fab-button a {
   border-radius: 50% !important;
   width: 50px !important;
   height: 50px !important; }
 
-/* line 335, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+/* line 336, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
 .fab-button i {
   display: flex;
   align-items: center;
@@ -190,23 +190,30 @@ html, body {
   height: 100%;
   color: white; }
 
-/* line 343, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+/* line 344, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
 .reveal {
   position: relative;
   transform: translateY(100px);
   opacity: 0;
   transition: all 2s ease; }
 
-/* line 350, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+/* line 351, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
 .reveal.active-reveal {
   transform: translateY(0px);
   opacity: 1; }
 
+/* line 356, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+.project-status-nav {
+  overflow-x: auto; }
+  /* line 358, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+  .project-status-nav::-webkit-scrollbar {
+    display: none; }
+
 @media (max-width: 991.98px) {
-  /* line 362, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+  /* line 369, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
   .nav-link.custom-active {
     padding-left: 24px !important; }
-  /* line 365, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+  /* line 372, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
   .custom-active {
     font-weight: bold;
     background-color: #065473 !important;
@@ -214,53 +221,53 @@ html, body {
     border-bottom: none; } }
 
 @media (max-width: 767.98px) {
-  /* line 375, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+  /* line 382, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
   .hero-carousel .ratio-21x9 {
     --bs-aspect-ratio: calc(4 / 4 * 100%); }
-  /* line 379, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+  /* line 386, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
   .hero-carousel .carousel-caption {
     width: 100% !important;
     padding: 24px !important;
     background: rgba(255, 255, 255, 0.7) !important; }
-  /* line 384, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+  /* line 391, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
   .hero-carousel .btn {
     padding: 16px 16px !important; }
-  /* line 387, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+  /* line 394, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
   .carousel-indicators [data-bs-target] {
     width: 15px !important;
     height: 15px !important; }
-  /* line 391, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+  /* line 398, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
   .navbar {
     padding-left: 8px !important;
     padding-right: 8px !important; }
-  /* line 395, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+  /* line 402, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
   .card:not(.card.header-card) {
     transition: .5s;
     max-width: 350px; } }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
-  /* line 403, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+  /* line 410, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
   .hero-carousel .ratio-21x9 {
     --bs-aspect-ratio: calc(9 / 16 * 100%); }
-  /* line 407, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+  /* line 414, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
   .navbar {
     padding-left: 32px !important;
     padding-right: 32px !important; } }
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
-  /* line 415, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+  /* line 422, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
   .navbar {
     padding-left: 24px !important;
     padding-right: 24px !important; }
-  /* line 419, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+  /* line 426, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
   .navbar .me-2 {
     margin-right: 0 !important; } }
 
 @media (max-width: 575.98px) {
-  /* line 426, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+  /* line 433, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
   .projects .nav.justify-content-center {
     justify-content: start !important; }
-    /* line 429, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
+    /* line 436, c:/users/codehub_technologies/desktop/codehub tech studio/projects/django/rhynogreg/staticfiles/main.scss */
     .projects .nav.justify-content-center::-webkit-scrollbar {
       display: none; } }
 
